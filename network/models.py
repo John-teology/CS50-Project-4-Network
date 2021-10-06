@@ -19,3 +19,5 @@ class Post(models.Model):
             "date":self.time,
             "user":self.user.username
         }
+
+# class 

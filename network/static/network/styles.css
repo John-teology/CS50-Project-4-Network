@@ -1,0 +1,11 @@
+#input {
+  border-radius: 16px;
+  border-style: double;
+  border-color: black;
+  margin: 10px 150px;
+  padding: 10px;
+  background-color: rgb(211, 201, 188);
+}
+textarea {
+  margin-bottom: 10px;
+}

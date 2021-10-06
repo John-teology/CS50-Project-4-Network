@@ -1,5 +1,19 @@
-{% extends "network/layout.html" %}
+{% extends "network/layout.html" %} {% load static %} {% block body %}
 
-{% block body %}
-    TODO
+<div id="post"></div>
+
+<div id="input">
+  <form>
+    <label for="exampleFormControlTextarea1">New Post</label>
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      placeholder="What do you think?"
+      rows="3"
+    ></textarea>
+    <input type="submit" value="Post" />
+  </form>
+</div>
+{% endblock %} {% block script %}
+<link rel="stylesheet" href="{% static 'network/styles.css' %}" />
 {% endblock %}

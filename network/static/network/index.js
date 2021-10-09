@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   document
-    .querySelector("#All_post")
+    .querySelector("#all_post")
     .addEventListener("click", () => loadpost("posts"));
 
   // document
@@ -11,17 +11,19 @@ document.addEventListener("DOMContentLoaded", () => {
     .querySelector("#compose-post")
     .addEventListener("submit", submitpost);
 
+  document.querySelector("#profile").addEventListener("click", show_profile);
   loadpost("posts");
 });
 
 function loadpost(post) {
-  // document.querySelector("#post").innerHTML = post;
+  document.querySelector("#input").style.display = "block";
+  document.querySelector("#post").style.display = "block";
+  document.querySelector("hr").style.display = "block";
   compost_post();
   fetch("/" + post)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((post) => {
-        console.log(post.id);
         let view = document.querySelector("#post");
         const pos = document.createElement("div");
         pos.innerHTML = `<div class = 'post' >
@@ -45,7 +47,6 @@ function compost_post() {
 
 function submitpost(event) {
   event.preventDefault();
-  console.log(document.querySelector("#textbox").value);
   fetch("/compose", {
     method: "POST",
     body: JSON.stringify({
@@ -54,4 +55,10 @@ function submitpost(event) {
   }).then((response) => {
     loadpost("posts");
   });
+}
+
+function show_profile() {
+  document.querySelector("#input").style.display = "none";
+  document.querySelector("#post").style.display = "none";
+  document.querySelector("hr").style.display = "none";
 }

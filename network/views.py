@@ -71,7 +71,7 @@ def register(request):
 
 def posts(request):
     posts = Post.objects.all()
-    
+    posts = posts.order_by("-time").all()
     return JsonResponse([post.serialize() for post in posts],safe=False)
 
 @csrf_exempt  # PUTANG INA IKAW LANG PALA KULANG
@@ -85,3 +85,9 @@ def composeposts(request):
     newpost.save()
     return JsonResponse({"message": "Email sent successfully."}, status=201)
     
+def profile(request,username):
+    user  = User.objects.get(username = username)
+    posts =Post.objects.filter(user = user)
+    
+    posts = posts.order_by("-time").all()
+    return JsonResponse([post.serialize() for post in posts],safe=False)

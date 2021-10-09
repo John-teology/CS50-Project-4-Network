@@ -2,10 +2,37 @@
   border-radius: 16px;
   border-style: double;
   border-color: black;
-  margin: 10px 150px;
+  margin: 10px 250px;
   padding: 10px;
   background-color: rgb(211, 201, 188);
 }
 textarea {
   margin-bottom: 10px;
+}
+
+#navbar {
+  background-color: rgb(211, 201, 188);
+}
+
+body {
+  background-color: rgb(150, 143, 133);
+}
+
+.post {
+  border-radius: 16px;
+  border-style: double;
+  border-color: black;
+  margin: 10px 250px;
+  padding: 10px;
+  background-color: rgb(211, 201, 188);
+}
+
+.userid {
+  text-decoration: none;
+  color: black;
+}
+
+.userid:hover {
+  text-decoration: none;
+  color: black;
 }

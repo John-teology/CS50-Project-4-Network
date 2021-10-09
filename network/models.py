@@ -16,7 +16,7 @@ class Post(models.Model):
         return{
             "id": self.id,
             "post":self.post,
-            "date":self.time,
+            "date":self.time.strftime("%b %d %Y, %I:%M %p"),
             "user":self.user.username
         }
 

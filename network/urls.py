@@ -10,5 +10,6 @@ urlpatterns = [
     path("register", views.register, name="register"),
     
     #API routes
-    path("Post", views.posts, name="posts" )
+    path("posts", views.posts, name="posts" ),
+    path("compose", views.composeposts, name="composed")
 ]

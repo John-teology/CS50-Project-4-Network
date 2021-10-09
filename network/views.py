@@ -1,3 +1,4 @@
+import json
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.db.models.expressions import F
@@ -5,6 +6,8 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.http.response import JsonResponse
 from django.shortcuts import render
 from django.urls import reverse
+from django.views.decorators.csrf import csrf_exempt
+
 
 from .models import Post, User
 
@@ -70,3 +73,15 @@ def posts(request):
     posts = Post.objects.all()
     
     return JsonResponse([post.serialize() for post in posts],safe=False)
+
+@csrf_exempt  # PUTANG INA IKAW LANG PALA KULANG
+def composeposts(request):
+    if request.method != "POST":
+        return JsonResponse({"error": "POST request required."}, status=400)
+    
+    data = json.loads(request.body)
+    posts = data.get("post","") # if etoo
+    newpost = Post(post = posts , user = request.user)
+    newpost.save()
+    return JsonResponse({"message": "Email sent successfully."}, status=201)
+    

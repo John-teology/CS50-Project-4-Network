@@ -1,19 +1,22 @@
 {% extends "network/layout.html" %} {% load static %} {% block body %}
 
-<div id="post"></div>
-
 <div id="input">
-  <form>
+  <form id="compose-post">
     <label for="exampleFormControlTextarea1">New Post</label>
     <textarea
       class="form-control"
-      id="exampleFormControlTextarea1"
+      id="textbox"
       placeholder="What do you think?"
       rows="3"
     ></textarea>
     <input type="submit" value="Post" />
   </form>
 </div>
+
+<hr style="margin: 0px 250px; background-color: black" />
+
+<div id="post"></div>
+
 {% endblock %} {% block script %}
 <link rel="stylesheet" href="{% static 'network/styles.css' %}" />
 {% endblock %}
